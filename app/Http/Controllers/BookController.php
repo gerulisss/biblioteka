@@ -49,14 +49,10 @@ class BookController extends Controller
         'book_pages' => ['required', 'min:3', 'max:64'],
         'book_about' => ['required', 'min:3', 'max:64'],
          ],
-         [
-            'book.title' => 'Book title is required',
-            'author_isbn.required' => 'Book isbn is required',
-        ]
         );
         if ($validator->fails()) {
         $request->flash();
-        return redirect()->route('author.create')->withErrors($validator);
+        return redirect()->route('book.create')->withErrors($validator);
         
         }
 
