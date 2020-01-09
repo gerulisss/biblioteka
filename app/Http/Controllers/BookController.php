@@ -141,4 +141,8 @@ class BookController extends Controller
         return redirect()->route('book.index')->with('success_message', 'Sekmingai ištrintas.');
 
     }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }
