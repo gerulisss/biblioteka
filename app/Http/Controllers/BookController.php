@@ -56,14 +56,14 @@ class BookController extends Controller
         
         }
 
-        $author = new Book;
+        $book = new Book;
         $book->title = $request->book_title;
         $book->isbn = $request->book_isbn;
         $book->pages = $request->book_pages;
         $book->about = $request->book_about;
         $book->author_id = $request->author_id;
         $book->save();
-        return redirect()->route('book.index')->with('success_message', 'Sėkmingai pakeistas.');
+        return redirect()->route('book.index')->with('success_message', 'Sėkmingai sukurta knyga.');
 
 
     }
@@ -106,19 +106,14 @@ class BookController extends Controller
         'book_isbn' => ['required', 'min:3', 'max:64'],
         'book_pages' => ['required', 'min:3', 'max:64'],
         'book_about' => ['required', 'min:3', 'max:64'],
-         ],
-         [
-            'book.title' => 'Book title is required',
-            'author_isbn.required' => 'Book isbn is required',
-        ]
+         ]
         );
         if ($validator->fails()) {
         $request->flash();
-        return redirect()->route('author.create')->withErrors($validator);
+        return redirect()->route('book.index')->withErrors($validator);
         
         }
 
-        $author = new Book;
         $book->title = $request->book_title;
         $book->isbn = $request->book_isbn;
         $book->pages = $request->book_pages;

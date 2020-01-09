@@ -102,11 +102,10 @@ class AuthorController extends Controller
         );
         if ($validator->fails()) {
         $request->flash();
-        return redirect()->route('author.create')->withErrors($validator);
+        return redirect()->route('author.update')->withErrors($validator);
 
         }
         
-        $author = new Author;
         $author->name = $request->author_name;
         $author->surname = $request->author_surname;
         $author->save();
