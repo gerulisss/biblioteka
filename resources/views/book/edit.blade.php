@@ -16,7 +16,7 @@
                 <small class="form-text text-muted">Redaguokite knygos puslapių skaičių</small>
                 Pages: <input type="text" name="book_pages" class="form-control" value="{{old('book_pages',$book->pages)}}">
                 <small class="form-text text-muted">Redaguokite knygos aprašymą</small>
-                About: <textarea name="book_about" class="form-control" id="summernote" value="{{old('book_about',$book->about)}}"></textarea>
+                About: <textarea name="book_about" class="form-control" id="summernote">{{$book->about}}</textarea>
                 <br>
                 <small class="form-text text-muted">Knygos autoriaus pasirinkimas</small>
                 <select name="author_id" class="form-control">

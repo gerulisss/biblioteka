@@ -44,6 +44,10 @@ class AuthorController extends Controller
         'author_name' => ['required', 'min:3', 'max:64'],
         'author_surname' => ['required', 'min:3', 'max:64'],
         ],
+        [
+            'author_name.required' => 'Prasome uzpildyti name laukeli',
+            'author_surname.required' => 'Prasome uzpildyti surname laukeli'
+         ]
         );
         if ($validator->fails()) {
         $request->flash();

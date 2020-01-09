@@ -47,8 +47,15 @@ class BookController extends Controller
         'book_title' => ['required', 'min:3', 'max:64'],
         'book_isbn' => ['required', 'min:3', 'max:64'],
         'book_pages' => ['required', 'min:3', 'max:64'],
-        'book_about' => ['required', 'min:3', 'max:64'],
+        'book_about' => ['required'],
          ],
+         [
+            'book_title.required' => 'Prasome uzpildyti title laukeli',
+            'book_isbn.required' => 'Prasome uzpildyti isbn laukeli',
+            'book_pages.required' => 'Prasome uzpildyti pages laukeli',
+            'book_about.required' => 'Prasome uzpildyti about laukeli'
+         ]
+         
         );
         if ($validator->fails()) {
         $request->flash();
@@ -105,7 +112,7 @@ class BookController extends Controller
         'book_title' => ['required', 'min:3', 'max:64'],
         'book_isbn' => ['required', 'min:3', 'max:64'],
         'book_pages' => ['required', 'min:3', 'max:64'],
-        'book_about' => ['required', 'min:3', 'max:64'],
+
          ]
         );
         if ($validator->fails()) {
