@@ -12,7 +12,7 @@
             <br>
             Pages: {{old('book_pages',$book->pages)}}
             <br>
-            About: {{old('book_about',$book->about)}}
+            About: {!!$book->about!!}
             @csrf
             <br>
             <a style="text-decoration:none;" href="{{route('book.edit',[$book])}}"><button type="button" class="btn btn-primary">Edit</button></a>

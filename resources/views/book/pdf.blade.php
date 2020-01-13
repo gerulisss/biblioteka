@@ -36,7 +36,7 @@
     ISBN: {{$book->isbn}}<br>
     Pages: {{$book->pages}}<br>
 </h4>
-    About: {{$book->about}}<br>
+    About: {!!$book->about!!}<br>
     <h3>
     Author: {{$book->bookAuthor->name.' '.$book->bookAuthor->surname}}
     </h3>

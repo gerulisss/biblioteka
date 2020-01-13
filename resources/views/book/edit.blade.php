@@ -38,9 +38,23 @@
     </div>
     </div>
     <script>
-        $(document).ready(function() {
-        $('#summernote').summernote();
-        });
+        // $(document).ready(function() {
+        // $('#summernote').summernote();
+        // });
+        $("#summernote").summernote({
+        height: 200,
+        toolbar: [
+            [ 'style', [ 'style' ] ],
+            [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+            [ 'fontname', [ 'fontname' ] ],
+            [ 'fontsize', [ 'fontsize' ] ],
+            [ 'color', [ 'color' ] ],
+            [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
+            [ 'table', [ 'table' ] ],
+            [ 'insert', [ 'link'] ],
+            [ 'view', [ 'undo', 'redo', 'fullscreen', 'help' ] ]
+        ]
+    });
         </script>
         
 @endsection
