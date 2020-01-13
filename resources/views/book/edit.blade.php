@@ -4,11 +4,11 @@
     <div class="row justify-content-center">
     <div class="col-md-8">
     <div class="card">
-    <div class="card-header">Edit</div>
+    <div class="card-header">Knygos redagavimas</div>
     <div class="card-body">
         <form method="POST" action="{{route('book.update',[$book])}}">
             <div class="form-group">
-                <label>Redaguoti knygą</label>
+                {{-- <label>Knygos redagavimas</label> --}}
                 <small class="form-text text-muted">Redaguokite knygos pavadinimą</small>
                Title <input type="text" name="book_title" class="form-control" value="{{old('book_title',$book->title)}}">
                <small class="form-text text-muted">Redaguokite knygos kodą</small>
@@ -29,7 +29,7 @@
                 </select>
                 @csrf
                 <br>
-                <button type="submit" class="form-control">EDIT</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
                 </form>
         </div>
     </div>

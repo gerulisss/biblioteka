@@ -39,5 +39,6 @@ Route::group(['prefix' => 'books'], function(){
     Route::post('update/{book}', 'BookController@update')->name('book.update');
     Route::post('/delete/{book}', 'BookController@destroy')->name('book.destroy');
     Route::get('show/{book}', 'BookController@show')->name('book.show');
+    Route::get('pdf/{book}', 'BookController@pdf')->name('book.pdf');
     });
     

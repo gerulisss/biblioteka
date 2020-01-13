@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>{{$author->name}} {{$author->surname}}</title>
+    <title>{{$book->title}}</title>
 
 
 
@@ -30,12 +30,16 @@
     }
 </style>
 </body>
-<h1>Autoriaus kortelė</h1>
-<h2>
-    Name: {{$author->name}}<br>
-    Surname: {{$author->surname}}<br>
-    </h2>
-    <img src="{{asset('/img/')}}/{{$author->photo}}" style="width:150px">
+<h1>Knygos kortelė</h1>
+<h4>
+    Title: {{$book->title}}<br>
+    ISBN: {{$book->isbn}}<br>
+    Pages: {{$book->pages}}<br>
+</h4>
+    About: {{$book->about}}<br>
+    <h3>
+    Author: {{$book->bookAuthor->name.' '.$book->bookAuthor->surname}}
+    </h3>
 
 </body>
 </html>

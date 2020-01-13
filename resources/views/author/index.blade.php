@@ -4,9 +4,9 @@
   <div class="row justify-content-center">
   <div class="col-md-8">
   <div class="card">
-  <div class="card-header">Index</div>
+  <div class="card-header">Autorių sąrašas</div>
   <div class="card-body">
-    <label>Autoriu sarasas:</label>
+    {{-- <label>Autoriu sarasas:</label> --}}
     <br>
     @foreach ($authors as $author)
     <a style="float:left;" href="{{route('author.edit',[$author])}}">{{$author->name}}

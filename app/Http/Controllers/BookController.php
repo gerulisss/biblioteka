@@ -6,6 +6,7 @@ use App\Author;
 use App\Book;
 use Illuminate\Http\Request;
 use Validator;
+use PDF;
 
 class BookController extends Controller
 {
@@ -83,7 +84,8 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+
+        return view('book.show', ['book' => $book]);
     }
 
     /**
@@ -111,7 +113,6 @@ class BookController extends Controller
          [
         'book_title' => ['required', 'min:3', 'max:64'],
         'book_isbn' => ['required', 'min:3', 'max:64'],
-        'book_pages' => ['required', 'min:3', 'max:64'],
 
          ]
         );
@@ -146,5 +147,11 @@ class BookController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function pdf(Book $book)
+    {
+        $pdf = PDF::loadView('book.pdf', ['book' => $book]);
+        return $pdf->download($book->title.'.pdf');
     }
 }

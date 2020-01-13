@@ -4,10 +4,10 @@
     <div class="row justify-content-center">
     <div class="col-md-8">
     <div class="card">
-    <div class="card-header">Create</div>
+    <div class="card-header">Knygos sukūrimas</div>
     <div class="card-body">
         <div class="form-group">
-            <label>Knygos sukūrimas</label>
+            {{-- <label>Knygos sukūrimas</label> --}}
         <form method="POST" action="{{route('book.store')}}">
             <small class="form-text text-muted">Įveskite knygos pavadinimą</small>
             Title: <input type="text" name="book_title" class="form-control" value="{{old('book_title')}}">
@@ -27,7 +27,7 @@
             </select>
             @csrf
             <br>
-            <button type="submit" class="form-control">ADD</button>
+            <button type="submit" class="btn btn-primary">ADD</button>
             </form>
         </div>
     </div>
