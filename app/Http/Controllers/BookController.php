@@ -88,6 +88,11 @@ class BookController extends Controller
         return view('book.show', ['book' => $book]);
     }
 
+    public function list(Book $book)
+    {
+        return view('book.list', ['book' => $book]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

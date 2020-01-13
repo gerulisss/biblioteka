@@ -28,6 +28,7 @@ Route::group(['prefix' => 'authors'], function(){
     Route::post('delete/{author}', 'AuthorController@destroy')->name('author.destroy');
     Route::get('show/{author}', 'AuthorController@show')->name('author.show');
     Route::get('pdf/{author}', 'AuthorController@pdf')->name('author.pdf');
+    Route::get('list/{author}', 'AuthorController@list')->name('author.list');
 
 });
 
@@ -40,5 +41,6 @@ Route::group(['prefix' => 'books'], function(){
     Route::post('/delete/{book}', 'BookController@destroy')->name('book.destroy');
     Route::get('show/{book}', 'BookController@show')->name('book.show');
     Route::get('pdf/{book}', 'BookController@pdf')->name('book.pdf');
+    Route::get('list/{book}', 'BookController@list')->name('book.list');
     });
     

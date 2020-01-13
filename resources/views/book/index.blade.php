@@ -9,9 +9,10 @@
             {{-- <label>Knygos ištrinimas</label>
             <small class="form-text text-muted">Ištrinti knygą</small> --}}
         @foreach ($books as $book)
+        <a style="text-decoration:none;" href="{{route('book.list',[$book])}}">{{$book->title}} {{$book->bookAuthor->name}} {{$book->bookAuthor->surname}}</a>
         <form method="POST" action="{{route('book.destroy', [$book])}}">
         @csrf
-        <a style="text-decoration:none;" href="{{route('book.edit',[$book])}}">{{$book->title}} {{$book->bookAuthor->name}} {{$book->bookAuthor->surname}} <button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+        <a style="text-decoration:none;" href="{{route('book.edit',[$book])}}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
         <a style="text-decoration:none;" href="{{route('book.show',[$book])}}"><button type="button" class="btn btn-info btn-sm">Show</button></a>
         <button type="submit" class="form-control; btn btn-danger btn-sm">DELETE</button>
         </form>

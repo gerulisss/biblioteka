@@ -9,7 +9,7 @@
     {{-- <label>Autoriu sarasas:</label> --}}
     <br>
     @foreach ($authors as $author)
-    <a style="float:left;" href="{{route('author.edit',[$author])}}">{{$author->name}}
+    <a style="float:left;" href="{{route('author.list',[$author])}}">{{$author->name}}
       {{$author->surname}}</a>
       <br>
     <form method="POST" action="{{route('author.destroy', [$author])}}">

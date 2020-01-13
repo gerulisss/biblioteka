@@ -46,10 +46,12 @@ class AuthorController extends Controller
         [
         'author_name' => ['required', 'min:3', 'max:64'],
         'author_surname' => ['required', 'min:3', 'max:64'],
+        'author_photo' => ['required'],
         ],
         [
             'author_name.required' => 'Prasome uzpildyti name laukeli',
-            'author_surname.required' => 'Prasome uzpildyti surname laukeli'
+            'author_surname.required' => 'Prasome uzpildyti surname laukeli',
+            'author_photo.required' => 'Prasome ikelti savo nuotrauka'
          ]
         );
         if ($validator->fails()) {
@@ -64,6 +66,7 @@ class AuthorController extends Controller
         $file = $request->file('author_photo');
 
         $file_name = $file->getClientOriginalName();
+
 
    
       //Move Uploaded File
@@ -88,6 +91,11 @@ class AuthorController extends Controller
     public function show(Author $author)
     {
         return view('author.show', ['author' => $author]);
+    }
+
+    public function list(Author $author)
+    {
+        return view('author.list', ['author' => $author]);
     }
 
     /**

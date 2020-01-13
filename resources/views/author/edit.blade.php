@@ -13,7 +13,10 @@
             Name: <input type="text" name="author_name" class="form-control" value="{{old('author_name',$author->name)}}">
             <small class="form-text text-muted">Redaguokite pavardę</small>
             Surname: <input type="text" name="author_surname" class="form-control" value="{{old('author_name',$author->surname)}}">
+            <br>
+            Photo: <img src="{{asset('/img/')}}/{{$author->photo}}" style="width:150px">
             @csrf
+            <br>
             <br>
             <button type="submit" class="btn btn-primary">Edit</button>
             </form>

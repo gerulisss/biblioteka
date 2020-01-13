@@ -15,7 +15,7 @@
             </h4>
                 About: {{$book->about}}<br>
                 <h3>
-                Author:{{$book->bookAuthor->name.' '.$book->bookAuthor->surname}}
+                Author: {{$book->bookAuthor->name.' '.$book->bookAuthor->surname}}
                 </h3>
 
             <br>
