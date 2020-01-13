@@ -46,7 +46,7 @@ class BookController extends Controller
          [
         'book_title' => ['required', 'min:3', 'max:64'],
         'book_isbn' => ['required', 'min:3', 'max:64'],
-        'book_pages' => ['required', 'min:3', 'max:64'],
+        'book_pages' => ['required', 'min:2', 'max:64'],
         'book_about' => ['required'],
          ],
          [

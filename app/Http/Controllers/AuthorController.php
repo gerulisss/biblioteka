@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Author;
 use Illuminate\Http\Request;
 use Validator;
+use PDF;
 
 class AuthorController extends Controller
 {
@@ -15,7 +16,9 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::all();
+        $authors = Author::all()->sortByDesc('surname');
+
+
         return view('author.index', ['authors' => $authors]);
     }
 
@@ -56,8 +59,21 @@ class AuthorController extends Controller
         }
         
         $author = new Author;
+
+
+        $file = $request->file('author_photo');
+
+        $file_name = $file->getClientOriginalName();
+
+   
+      //Move Uploaded File
+      $destinationPath = public_path(). '/img';
+
+      $file->move($destinationPath,$file->getClientOriginalName());
+
         $author->name = $request->author_name;
         $author->surname = $request->author_surname;
+        $author->photo = $file_name;
         $author->save();
         return redirect()->route('author.index')->with('success_message', ' Autorius Sekmingai įrašytas.');
 
@@ -71,7 +87,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        return view('author.show', ['author' => $author]);
     }
 
     /**
@@ -138,4 +154,11 @@ class AuthorController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function pdf(Author $author)
+    {
+        $pdf = PDF::loadView('author.pdf', ['author' => $author]);
+        return $pdf->download($author->name.$author->surname.'.pdf');
+    }
+
 }

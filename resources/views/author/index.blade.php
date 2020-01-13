@@ -6,14 +6,17 @@
   <div class="card">
   <div class="card-header">Index</div>
   <div class="card-body">
-    <label>Autoriaus ištrinimas</label>
-    <small class="form-text text-muted">Ištrinti autorių</small>
+    <label>Autoriu sarasas:</label>
+    <br>
     @foreach ($authors as $author)
-    <a href="{{route('author.edit',[$author])}}">{{$author->name}}
-    {{$author->surname}}</a>
+    <a style="float:left;" href="{{route('author.edit',[$author])}}">{{$author->name}}
+      {{$author->surname}}</a>
+      <br>
     <form method="POST" action="{{route('author.destroy', [$author])}}">
     @csrf
-    <button type="submit" class="form-control">DELETE</button>
+    <a style="text-decoration:none;" href="{{route('author.show',[$author])}}"><button type="button" class="btn btn-info btn-sm">Show</button></a>
+    <a style="text-decoration:none;" href="{{route('author.edit',[$author])}}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+    <button type="submit" class="form-control; btn btn-danger btn-sm">DELETE</button>
     </form>
     <br>
     @endforeach
@@ -23,4 +26,6 @@
   </div>
   </div>
 @endsection
+
+
 
