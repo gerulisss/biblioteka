@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <h2>Biblioteka</h2>
+                    <h5>Biblioteka</h5>
                 </div>
 
                 <div class="links">

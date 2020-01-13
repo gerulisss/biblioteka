@@ -13,9 +13,13 @@
             Pages: {{old('book_pages',$book->pages)}}
             <br>
             About: {!!$book->about!!}
+            <br>
+            Author: {{$book->bookAuthor->name.' '.$book->bookAuthor->surname}}
+            <br>
             @csrf
             <br>
             <a style="text-decoration:none;" href="{{route('book.edit',[$book])}}"><button type="button" class="btn btn-primary">Edit</button></a>
+            <a class="btn btn-success" href="{{route('book.index')}}">Back to books list</a>
         </div>
     </div>
     </div>

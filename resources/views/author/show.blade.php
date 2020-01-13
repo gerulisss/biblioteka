@@ -15,8 +15,9 @@
 
             <img src="{{asset('/img/')}}/{{$author->photo}}" style="width:150px">
             <br>
-
-            <a href="{{route('author.pdf', [$author])}}">Download PDF</a>
+            <br>
+            <a href="{{route('author.pdf', [$author])}}"><button type="submit" class="btn btn-primary">Download PDF</button></a>
+            <a href="{{route('author.index', [$author])}}"><button type="submit" class="btn btn-success">Back to authors list</button></a>
         </div>
     </div>
     </div>

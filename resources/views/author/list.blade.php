@@ -15,6 +15,7 @@
             @csrf
             <br>
             <a style="text-decoration:none;" href="{{route('author.edit',[$author])}}"><button type="button" class="btn btn-primary">Edit</button></a>
+            <a href="{{route('author.index', [$author])}}"><button type="submit" class="btn btn-success">Back to authors list</button></a>
         </div>
     </div>
     </div>

@@ -19,6 +19,7 @@
             <br>
             <br>
             <button type="submit" class="btn btn-primary">Edit</button>
+            <a class="btn btn-success" href="{{route('author.index', [$author])}}">Back to authors list</a>
             </form>
         </div>
     </div>

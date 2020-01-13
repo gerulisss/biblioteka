@@ -21,6 +21,7 @@
             @csrf
             <br>
             <button type="submit" class="btn btn-primary">ADD</button>
+            <a class="btn btn-success" href="{{route('author.index')}}">Back to authors list</a>
         </form>
     </div>
     </div>

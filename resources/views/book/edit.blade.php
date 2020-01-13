@@ -30,6 +30,7 @@
                 @csrf
                 <br>
                 <button type="submit" class="btn btn-primary">Edit</button>
+                <a class="btn btn-success" href="{{route('book.index')}}">Back to books list</a>
                 </form>
         </div>
     </div>

@@ -20,7 +20,8 @@
 
             <br>
 
-            <a href="{{route('book.pdf', [$book])}}">Download PDF</a>
+            <a href="{{route('book.pdf', [$book])}}"><button type="submit" class="btn btn-primary">Download PDF</button></a>
+            <a class="btn btn-success" href="{{route('book.index')}}">Back to books list</a>
         </div>
     </div>
     </div>

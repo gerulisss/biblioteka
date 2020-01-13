@@ -166,7 +166,7 @@ class AuthorController extends Controller
     public function pdf(Author $author)
     {
         $pdf = PDF::loadView('author.pdf', ['author' => $author]);
-        return $pdf->download($author->name.$author->surname.'.pdf');
+        return $pdf->download($author->name.' '.$author->surname.'.pdf');
     }
 
 }
