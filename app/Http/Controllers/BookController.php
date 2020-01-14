@@ -15,10 +15,34 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::all();
-        return view('book.index', ['books' => $books]);
+
+        if($request->filter) {
+            $books = Book::where('author_id', $request->filter)->get();
+        }
+        else {
+            $books = Book::all();
+        }
+
+        if($request->sort) {
+            if($request->sort == 'az') { 
+                $books = $books->sortBy('title');
+            }
+            elseif($request->sort == 'za') { 
+                $books = $books->sortByDesc('title');
+            }
+
+        }
+
+
+        $authors = Author::all();
+        return view('book.index', [
+            'books' => $books,
+            'authors' =>$authors,
+            'filter' => $request->filter ?? 0,
+            'sort' => $request->sort ?? 'az'
+            ]);
     }
 
     /**
@@ -28,7 +52,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        $authors = Author::all();
+        $authors = Author::all()->sortByDesc('surname');
         return view('book.create', ['authors' => $authors]);
         
 

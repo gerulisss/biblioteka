@@ -4,7 +4,26 @@
     <div class="row justify-content-center">
     <div class="col-md-8">
     <div class="card">
-    <div class="card-header">Knygų sąrašas</div>
+    <div class="card-header">Knygų sąrašas
+        <form action="{{route('book.index')}}" method="GET">
+            <select name="filter">
+                <option value="0">Visi</option>
+                @foreach ($authors as $author)
+                <option value="{{$author->id}}" @if($author->id == $filter){{'selected'}}@endif>{{$author->name}} {{$author->surname}}</option>
+                @endforeach
+            </select>
+            <select name="sort">
+                <option value="az" @if('az' == $sort){{'selected'}}@endif>A-Z</option>
+                <option value="za" @if('za' == $sort){{'selected'}}@endif>Z-A</option>
+            </select>
+            <button class="btn btn-success" type="submit">GERAI</button>
+            </form>
+            
+            <a class="btn btn-danger" href="{{route('book.index')}}">Isvalyti</a>
+
+        </div>
+
+
     <div class="card-body">
             {{-- <label>Knygos ištrinimas</label>
             <small class="form-text text-muted">Ištrinti knygą</small> --}}
