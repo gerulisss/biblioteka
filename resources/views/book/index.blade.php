@@ -13,8 +13,9 @@
                 @endforeach
             </select>
             <select name="sort">
-                <option value="az" @if('az' == $sort){{'selected'}}@endif>A-Z</option>
-                <option value="za" @if('za' == $sort){{'selected'}}@endif>Z-A</option>
+                @foreach ($sorts as $sort)
+                <option value="{{$sort->value}}" @if($sort->value == $sortDef){{'selected'}}@endif>{{$sort->text}}</option>
+                @endforeach
             </select>
             <button class="btn btn-success" type="submit">GERAI</button>
             </form>

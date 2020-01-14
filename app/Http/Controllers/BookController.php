@@ -18,6 +18,7 @@ class BookController extends Controller
     public function index(Request $request)
     {
 
+
         if($request->filter) {
             $books = Book::where('author_id', $request->filter)->get();
         }
@@ -32,6 +33,13 @@ class BookController extends Controller
             elseif($request->sort == 'za') { 
                 $books = $books->sortByDesc('title');
             }
+            elseif ($request->sort == 'azt') {
+                $books = $books->sortByDesc('created_at');
+            }
+            elseif ($request->sort == 'zat') {
+                $books = $books->sortBy('created_at');
+            }
+
 
         }
 
@@ -41,7 +49,8 @@ class BookController extends Controller
             'books' => $books,
             'authors' =>$authors,
             'filter' => $request->filter ?? 0,
-            'sort' => $request->sort ?? 'az'
+            'sortDef' => $request->sort ?? 'az',
+            'sorts' => Book::getSort()
             ]);
     }
 
